@@ -2,20 +2,56 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "sideEffects": false,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
+    "@babel/core": "7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@babel/runtime": "^7.12.1",
+    "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.1",
+    "babel-plugin-named-asset-import": "^0.3.7",
+    "babel-preset-react-app": "^10.0.0",
+    "bfj": "^7.0.2",
+    "camelcase": "^6.2.0",
+    "dotenv": "8.2.0",
+    "dotenv-expand": "5.1.0",
+    "easy-peasy": "^4.0.1",
+    "eslint": "^7.12.1",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^3.10.0",
+    "fs-extra": "^9.0.1",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "26.6.1",
+    "jest-circus": "26.6.1",
+    "jest-resolve": "26.6.1",
+    "jest-watch-typeahead": "0.6.1",
+    "parcel": "2.0.0-nightly.433",
+    "react": "^16.8.0",
+    "react-app-polyfill": "^2.0.0",
+    "react-dev-utils": "^11.0.0",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
+    "react-refresh": "^0.9.0",
+    "resolve": "1.18.1",
+    "semver": "7.3.2",
+    "ts-pnp": "1.2.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "npx parcel ./public/index.html --open",
+    "build-working": "BUNDLE_BUDDY=true npx parcel build ./public/index.html  --no-source-maps --no-scope-hoist",
+    "build": "BUNDLE_BUDDY=true npx parcel build ./public/index.html  --no-minify --no-source-maps"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +70,55 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testRunner": "/Users/merit/_SOURCES/parcel-scope-hoist-error/node_modules/jest-circus/runner.js",
+    "transform": {
+      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "resetMocks": true
   }
 }
