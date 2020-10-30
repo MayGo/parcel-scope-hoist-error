@@ -51,7 +51,7 @@
   "scripts": {
     "start": "npx parcel ./public/index.html --open",
     "build-working": "BUNDLE_BUDDY=true npx parcel build ./public/index.html  --no-source-maps --no-scope-hoist",
-    "build": "BUNDLE_BUDDY=true npx parcel build ./public/index.html  --no-minify --no-source-maps"
+    "build": "BUNDLE_BUDDY=true npx parcel build ./public/index.html"
   },
   "eslintConfig": {
     "extends": [
